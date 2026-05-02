@@ -55,3 +55,63 @@ document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 });
+
+// --- CÓDIGO PARA GUARDAR PROGRESO DE LECTURA ---
+
+const STORAGE_KEY = 'ley32069_progreso_lectura'; // Clave única para guardar datos
+
+function initReadingTracker() {
+    // 1. Cargar progreso guardado
+    const savedProgress = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+
+    // 2. Seleccionar todos los artículos
+    const articles = document.querySelectorAll('h4.articulo');
+
+    articles.forEach(article => {
+        const id = article.id; // Ejemplo: "art-1", "art-2"
+        if (!id) return;
+
+        // A. Crear el contenedor y el checkbox
+        const checkContainer = document.createElement('div');
+        checkContainer.className = 'read-check-container';
+        
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.className = 'read-checkbox';
+        checkbox.id = `check-${id}`;
+        
+        // B. Verificar si ya estaba leído y marcarlo
+        if (savedProgress[id]) {
+            checkbox.checked = true;
+            article.classList.add('leido'); // Efecto visual opcional
+        }
+
+        // C. Evento: Guardar cuando se hace clic
+        checkbox.addEventListener('change', (e) => {
+            if (e.target.checked) {
+                savedProgress[id] = true;
+                article.classList.add('leido');
+            } else {
+                delete savedProgress[id];
+                article.classList.remove('leido');
+            }
+            // Guardar en localStorage
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(savedProgress));
+        });
+
+        // D. Insertar el checkbox antes del texto del título
+        article.prepend(checkContainer);
+        checkContainer.appendChild(checkbox);
+        
+        // Pequeño truco: Al hacer clic en el texto también marca el check
+        article.addEventListener('click', (e) => {
+            if (e.target !== checkbox && e.target.tagName !== 'A') {
+                // Opcional: Si quieres que clicar el título marque el check
+                // checkbox.click(); 
+            }
+        });
+    });
+}
+
+// Llamar a la función al cargar la página
+initReadingTracker();
