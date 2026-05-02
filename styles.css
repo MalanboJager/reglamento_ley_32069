@@ -88,3 +88,25 @@ th { background: #f0f4f8; }
     aside { width: 100%; height: auto; position: relative; top: 0; max-height: 250px; }
     main { padding: 20px; }
 }
+
+/* Estilos para el checkbox de lectura */
+.read-check-container {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.read-checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--primary); /* Usa tu color principal */
+    margin-right: 8px;
+}
+
+/* Opcional: Estilo cuando está marcado */
+h4.articulo.leido {
+    opacity: 0.6; /* Se vuelve un poco transparente */
+    text-decoration: line-through; /* Opcional: tachado */
+}
