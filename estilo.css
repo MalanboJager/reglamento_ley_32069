@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500&display=swap');
+*{
+    font-family: 'Nunito';
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    font-size: 20px;
+    background: #1BA9A4;
+    padding-bottom: 50px;
+}
+h1{
+	font-family: Arial;
+	font-size: 30px;
+	font-weight: bold;
+	color: #000000;
+    text-align: center;
+}
+h5{
+    font-size: 08px;
+	line-height: 0px;
+}
+#juego{
+    max-width: 800px;
+    margin: auto;
+}
+label{
+    display: flex;
+    font-size: 22px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+input[type="radio"]{
+    transform: scale(1.5);
+    margin-right: 10px;
+}
+button{
+    width: fit-content;
+    display: block;
+    margin: auto;
+    border: none;
+    background: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 20px;
+    cursor: pointer;
+	
+	position: relative;    
+    text-decoration: none;    
+    text-indent: 10px;
+    z-index: 2;
+}
+
+/*-----------boton 3----------*/
+
+.btn-3{
+    transition: all 0.6s ease;
+}
+
+.btn-3::after{
+    content: "";
+    position: absolute;
+    width: 10%;
+    height: 110%;
+    left: -10%;
+    top: 0;
+    transform: skew(20deg, 0deg);
+    background-color: #ffffff;
+    z-index: -1;
+    transition: all 0.4s ease;
+}
+
+.btn-3::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    transform: skew(20deg, 0deg);
+    border: 3px solid #03cc57;
+    transition: all 0.4s ease;
+    z-index: -1;
+}
+
+.btn-3:hover::after{
+    background-color: #ffffff31;
+    transform: skew(20deg, 0deg) translateX(240px);
+}
+
+.btn-3:hover::before{
+    background-color: #03cc57;
+    border: 3px solid #029740;
+    transform: skew(20deg, 0deg) scale(1.1);
+}
+
+/*-----------boton 4----------*/
+
+.btn-4::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-image: linear-gradient(90deg, rgb(255, 0, 255), rgb(19, 227, 255), rgb(251, 255, 20), rgb(255, 15, 15));
+    background-size: 300%;
+    border-radius: 5px;
+    z-index: -1;
+    transition: all 0.4s ease;
+}
+
+.btn-4:hover::after{
+    background-position: 100%;
+    filter: blur(15px);
+}
+
+.btn-4::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-image: linear-gradient(90deg, rgb(255, 30, 143), rgb(19, 227, 255), rgb(251, 255, 20), rgb(255, 15, 15));
+    background-size: 300%;
+    border-radius: 5px;
+    z-index: -1;
+}
+
+.btn-4:hover::before{
+    background-position: 100%;
+}
